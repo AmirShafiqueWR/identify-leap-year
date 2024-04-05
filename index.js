@@ -40,12 +40,18 @@ do {
         again = await testAgain();
     }
     else if (userInput.year % 4 == 0) {
-        if ((userInput.year % 100 == 0) && (userInput.year % 400 == 0)) {
-            console.log(`${userInput.year} is a leap year`);
-            again = await testAgain();
+        if (userInput.year % 100 == 0) {
+            if (userInput.year % 400 == 0) {
+                console.log(`${userInput.year} is a leap year`);
+                again = await testAgain();
+            }
+            else {
+                console.log(`${userInput.year} is not a leap year`);
+                again = await testAgain();
+            }
         }
         else {
-            console.log(`${userInput.year} is not a leap year`);
+            console.log(`${userInput.year} is a leap year`);
             again = await testAgain();
         }
     }
